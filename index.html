@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KDD 2026 Tutorial | LLM Personalization</title>
+  <meta name="description" content="From Generic Intelligence to Personalized AI: A KDD 2026 tutorial on foundations, techniques, data, evaluation, and responsible deployment of LLM personalization." />
+  <meta name="keywords" content="KDD 2026, LLM personalization, personalized AI, user modeling, retrieval-augmented generation, prompting, representation learning, RLHF, responsible AI" />
+  <meta name="author" content="KDD Tutorial on LLM Personalization" />
+  <link rel="canonical" href="https://llm-personalization-tutorial.github.io/" />
+
+  <meta property="og:title" content="KDD 2026 Tutorial | LLM Personalization" />
+  <meta property="og:description" content="From Generic Intelligence to Personalized AI: A Tutorial on Foundations of LLM Personalization." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://llm-personalization-tutorial.github.io/" />
+  <meta property="og:image" content="https://llm-personalization-tutorial.github.io/assets/img/cover.jpg" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230b1f4d'/%3E%3Cpath d='M16 43V18h6v20h11v5H16Zm22 0V18h10.5c6.1 0 10 3.2 10 8.8 0 5.5-3.9 8.7-10 8.7H44V43h-6Zm6-12.4h4.1c2.7 0 4.4-1.2 4.4-3.8 0-2.5-1.7-3.8-4.4-3.8H44v7.6Z' fill='white'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="#top" aria-label="KDD 2026 LLM Personalization Tutorial home">
+        <span class="brand-mark" aria-hidden="true">LP</span>
+        <span class="brand-text">LLM Personalization</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#top">Home</a>
+        <a href="#abstract">Abstract</a>
+        <a href="#outline">Outline</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#presenters">Presenters</a>
+        <a href="#materials">Materials</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="top" class="hero" aria-labelledby="hero-title">
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow">ACM SIGKDD 2026 Tutorial</p>
+          <h1 id="hero-title">From Generic Intelligence to Personalized AI</h1>
+          <p class="hero-subtitle">A Tutorial on Foundations of LLM Personalization</p>
+          <p class="hero-summary">Personalized LLMs for user-aware, reliable, and responsible AI systems.</p>
+          <div class="keyword-row" aria-label="Tutorial keywords">
+            <span>User Modeling</span>
+            <span>Retrieval-Augmented Generation</span>
+            <span>Preference Alignment</span>
+            <span>Representation Learning</span>
+            <span>Personalized Evaluation</span>
+            <span>Responsible AI</span>
+          </div>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button button-primary" href="assets/files/LLMPersonalization_Tutorial_KDD2026.pdf">Tutorial Paper</a>
+            <a class="button button-secondary" href="#schedule">View Schedule</a>
+            <a class="button button-ghost" href="#materials">Materials</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Tutorial snapshot">
+          <p class="panel-kicker">Tutorial Snapshot</p>
+          <dl class="snapshot-list">
+            <div>
+              <dt>Conference</dt>
+              <dd>ACM SIGKDD 2026</dd>
+            </div>
+            <div>
+              <dt>Session Type</dt>
+              <dd>Lecture Style Tutorial</dd>
+            </div>
+            <div>
+              <dt>Date</dt>
+              <dd>Monday, August 10, 2026</dd>
+            </div>
+            <div>
+              <dt>Time</dt>
+              <dd>9:00 AM &ndash; 12:00 PM</dd>
+            </div>
+            <div>
+              <dt>Duration</dt>
+              <dd>3-hour tutorial</dd>
+            </div>
+            <div>
+              <dt>Venue</dt>
+              <dd>Jeju Island, Republic of Korea</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section id="abstract" class="section section-tint" aria-labelledby="abstract-title">
+      <div class="container text-layout">
+        <div class="section-heading sticky-heading">
+          <p class="section-kicker">Abstract</p>
+          <h2 id="abstract-title">From Generic LLMs to Personalized AI</h2>
+        </div>
+        <div class="text-block">
+          <p>
+            Large language models have become powerful general-purpose systems, but many real-world applications require responses that reflect individual users, evolving needs, and situated context. LLM personalization studies how models can move beyond generic intelligence toward user-aware behavior that is more useful, consistent, and trustworthy in interactive settings.
+          </p>
+          <p>
+            This tutorial introduces the foundations of LLM personalization by examining how user preferences, interaction histories, profiles, and contextual signals can be represented, retrieved, and aligned with model behavior. We cover major personalization techniques, including retrieval-augmented generation, prompting, representation learning, and reinforcement learning from human feedback.
+          </p>
+          <p>
+            We also discuss data foundations, personalization granularity, direct and downstream evaluation protocols, benchmarks, metrics, and responsible deployment challenges such as cold-start personalization, privacy, fairness, and multimodal personalization. The topic is central to the KDD community because it connects recommendation, search, user modeling, interactive systems, data mining, and responsible AI.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="why-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">Why This Tutorial</p>
+          <h2 id="why-title">A Data-Centric View of Personalized LLMs</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>User-aware Intelligence</h3>
+            <p>Personalized LLMs can adapt responses to user goals, histories, preferences, and contexts. This turns language models into systems that better support long-term interaction and decision-making.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Personalization Techniques</h3>
+            <p>The tutorial compares practical techniques for injecting user information into LLMs, from retrieval and prompting to representation learning and preference alignment.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Data Foundations</h3>
+            <p>Effective personalization depends on what user signals are available, how they are structured, and how personalization granularity is defined across users, personas, and tasks.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Evaluation and Responsible Deployment</h3>
+            <p>Reliable personalization requires rigorous benchmarks, meaningful metrics, and careful treatment of privacy, fairness, cold-start users, and multimodal contexts.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="outline" class="section section-tint" aria-labelledby="outline-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">Tutorial Outline</p>
+          <h2 id="outline-title">Four-Part Lecture Structure</h2>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-marker">I</div>
+            <div class="timeline-card">
+              <h3>Part I: Introduction</h3>
+              <ul>
+                <li>Background and motivations</li>
+                <li>Problem definitions and settings</li>
+              </ul>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-marker">II</div>
+            <div class="timeline-card">
+              <h3>Part II: Personalization Techniques for LLMs</h3>
+              <ul>
+                <li>Retrieval-augmented generation</li>
+                <li>Prompting</li>
+                <li>Representation learning</li>
+                <li>RLHF / preference alignment</li>
+              </ul>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-marker">III</div>
+            <div class="timeline-card">
+              <h3>Part III: Data Foundations and Evaluation</h3>
+              <ul>
+                <li>Personalization granularity</li>
+                <li>Direct and downstream personalization</li>
+                <li>Benchmarks, protocols, and metrics</li>
+              </ul>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-marker">IV</div>
+            <div class="timeline-card">
+              <h3>Part IV: Discussion and Future Directions</h3>
+              <ul>
+                <li>Cold-start personalization</li>
+                <li>Privacy, bias, and fairness</li>
+                <li>Multimodal personalization</li>
+                <li>Open research questions</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="schedule" class="section" aria-labelledby="schedule-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">Schedule</p>
+          <h2 id="schedule-title">Tutorial Schedule</h2>
+          <p>Tentative internal schedule within the confirmed 9:00 AM &ndash; 12:00 PM tutorial slot. The coffee break is included in the 3-hour tutorial.</p>
+        </div>
+        <!-- TODO: confirm final speaker assignment before publication. -->
+        <div class="schedule-table-wrap">
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th scope="col">Time</th>
+                <th scope="col">Session</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>09:00 &ndash; 10:00</td>
+                <td>Part I: Introduction &amp; Part II: Personalization Techniques for LLMs</td>
+              </tr>
+              <tr>
+                <td>10:00 &ndash; 10:20</td>
+                <td>Coffee Break</td>
+              </tr>
+              <tr>
+                <td>10:20 &ndash; 11:20</td>
+                <td>Part III: Data Foundations and Evaluation &amp; Part IV: Discussion and Future Directions</td>
+              </tr>
+              <tr>
+                <td>11:20 &ndash; 12:00</td>
+                <td>Q&amp;A and Closing Remarks</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="presenters" class="section section-tint" aria-labelledby="presenters-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">Presenters</p>
+          <h2 id="presenters-title">Lecture Team</h2>
+          <p>The website currently lists the tutorial team members shown in the public tutorial materials, with presenter photos and homepage links where available.</p>
+        </div>
+        <div class="presenter-list">
+          <article class="presenter-row">
+            <div class="presenter-photo avatar-blue" data-initials="RW">
+              <img src="assets/img/presenters/ruijie-wang.jpg" alt="Ruijie Wang" />
+            </div>
+            <div class="presenter-info">
+              <h3>Ruijie Wang</h3>
+              <p class="affiliation">Beihang University</p>
+              <p class="bio">Ruijie Wang is a Professor at the School of Computer Science and Engineering, Beihang University. His research focuses on trustworthy and efficient AI, with an emphasis on large language models, graph learning, temporal data mining, and structured knowledge integration. He has published more than 40 papers in top-tier venues including NeurIPS, ACL, KDD, WWW, SIGIR, and UbiComp. His research has received multiple recognitions including the IEEE DCOSS Best Paper Award and UIUC PhD Fellowship. His work on graph-enhanced LLMs and structured knowledge integration directly aligns with the core technical focus of this tutorial.</p>
+              <a class="homepage-link" href="https://wjerry5.github.io/" target="_blank" rel="noopener">Homepage</a>
+            </div>
+          </article>
+
+          <article class="presenter-row">
+            <div class="presenter-photo avatar-cyan" data-initials="QZ">
+              <img src="assets/img/presenters/qingkai-zeng.png" alt="Qingkai Zeng" />
+            </div>
+            <div class="presenter-info">
+              <h3>Qingkai Zeng</h3>
+              <p class="affiliation">Nankai University</p>
+              <p class="bio">Qingkai Zeng is an Associate Professor in the College of Computer Science at Nankai University. His research focuses on text mining, knowledge-enhanced LLMs, and knowledge graph reasoning, with an emphasis on improving reliability and interpretability in knowledge-intensive tasks. He has published more than 30 papers in leading venues such as KDD, WWW, ACL, EMNLP, and ICLR, and served as PC member or Area Chair for major conferences. His expertise in knowledge-enhanced LLMs and graph-based reasoning supports the methodological foundations of this tutorial.</p>
+              <a class="homepage-link" href="https://qingkaizeng.github.io/" target="_blank" rel="noopener">Homepage</a>
+            </div>
+          </article>
+
+          <article class="presenter-row">
+            <div class="presenter-photo avatar-violet" data-initials="XW">
+              <img src="assets/img/presenters/xuefei-wang.jpg" alt="Xuefei Wang" />
+            </div>
+            <div class="presenter-info">
+              <h3>Xuefei Wang</h3>
+              <p class="affiliation">Beihang University</p>
+              <p class="bio">Xuefei Wang is a Ph.D. student at Beihang University. His research focuses on LLM personalization and LLM system implementation, contributing implementation perspectives to this tutorial.</p>
+            </div>
+          </article>
+
+          <article class="presenter-row">
+            <div class="presenter-photo avatar-orange" data-initials="YY">
+              <img src="assets/img/presenters/yutong-ye.png" alt="Yutong Ye" />
+            </div>
+            <div class="presenter-info">
+              <h3>Yutong Ye</h3>
+              <p class="affiliation">Beihang University</p>
+              <p class="bio">Yutong Ye is a Postdoctoral Researcher at Beihang University whose research focuses on graph data management, scalable graph analytics, and graph-enhanced LLMs. He has published over 30 papers in venues such as SIGMOD, VLDB, ICDE, AAAI, IJCAI, and CVPR, and his expertise supports scalable graph-LLM integration.</p>
+              <a class="homepage-link" href="https://jameswhitesnow.github.io/" target="_blank" rel="noopener">Homepage</a>
+            </div>
+          </article>
+
+          <article class="presenter-row">
+            <div class="presenter-photo avatar-green" data-initials="LS">
+              <img src="assets/img/presenters/li-sun.png" alt="Li Sun" />
+            </div>
+            <div class="presenter-info">
+              <h3>Li Sun</h3>
+              <p class="affiliation">Beijing University of Posts and Telecommunications</p>
+              <p class="bio">Li Sun is an Associate Professor at Beijing University of Posts and Telecommunications. His research focuses on large language models, graph representation learning, and knowledge mining. He has published over 70 papers in premier venues, including ICML, NeurIPS, ICLR, KDD, WWW, AAAI, TPAMI, TKDE, ACM TOIS, and TWEB, and received the ACM CIKM 2022 Best Paper Award. He has served as Area Chair or Program Committee member for major conferences such as KDD, ICML, NeurIPS, ICLR, WWW, IJCAI, and AAAI. His research on graph learning and LLM-based knowledge mining provides key algorithmic perspectives for the tutorial.</p>
+              <a class="homepage-link" href="https://sunli-ai.github.io/" target="_blank" rel="noopener">Homepage</a>
+            </div>
+          </article>
+
+          <article class="presenter-row">
+            <div class="presenter-photo avatar-navy" data-initials="JL">
+              <img src="assets/img/presenters/jianxin-li.png" alt="Jianxin Li" />
+            </div>
+            <div class="presenter-info">
+              <h3>Jianxin Li</h3>
+              <p class="affiliation">Beihang University</p>
+              <p class="bio">Jianxin Li is a Professor at the School of Computer Science and Engineering and the Beijing Advanced Innovation Center for Big Data and Brain Computing at Beihang University. His research interests include social network analysis, trustworthy machine learning, and large-scale data mining. He has published extensively in leading journals and conferences including TKDE, TDSC, TOIS, TKDD, KDD, AAAI, and WWW. He received the AAAI 2021 Best Paper Award and the DependSys 2017 Best Paper Award. He has also achieved first place in several international data science competitions. He currently serves as Associate Editor of IEEE Transactions on Computers and several other journals.</p>
+              <a class="homepage-link" href="https://myjianxin.github.io/" target="_blank" rel="noopener">Homepage</a>
+            </div>
+          </article>
+
+          <article class="presenter-row">
+            <div class="presenter-photo avatar-indigo" data-initials="PY">
+              <img src="assets/img/presenters/phillip-yu.png" alt="Phillip S. Yu" />
+            </div>
+            <div class="presenter-info">
+              <h3>Phillip S. Yu</h3>
+              <p class="affiliation">University of Illinois Chicago</p>
+              <p class="bio">Phillip S. Yu is a Distinguished Professor of Computer Science and the Wexler Chair in Information Technology at the University of Illinois Chicago (UIC). Before joining UIC, he managed the Software Tools and Techniques Department at IBM. He is a Fellow of ACM, IEEE, and AAAS. His research spans data mining, graph learning, user behavior modeling, and multimodal large language models. He has published over 1,700 papers with more than 252,000 citations and an h-index of 214. He received the ACM SIGKDD Innovation Award, IEEE Computer Society Technical Achievement Award, and multiple Test-of-Time awards. His pioneering work in graph mining and large-scale data analytics provides foundational insights for the tutorial's discussion of graph-enhanced AI and LLM systems.</p>
+              <a class="homepage-link" href="https://cs.uic.edu/profiles/philip-yu/" target="_blank" rel="noopener">Homepage</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="materials" class="section" aria-labelledby="materials-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">Materials</p>
+          <h2 id="materials-title">Tutorial Resources</h2>
+          <p>Public materials will be added as they become available. The tutorial paper is available now.</p>
+        </div>
+        <div class="materials-grid">
+          <a class="material-card material-card-active" href="assets/files/LLMPersonalization_Tutorial_KDD2026.pdf">
+            <span class="material-type">PDF</span>
+            <strong>Tutorial Paper</strong>
+            <span>Open the KDD 2026 tutorial paper</span>
+          </a>
+          <article class="material-card material-card-disabled" aria-disabled="true">
+            <span class="material-type">Deck</span>
+            <strong>Slides</strong>
+            <span>Coming soon</span>
+          </article>
+          <article class="material-card material-card-disabled" aria-disabled="true">
+            <span class="material-type">List</span>
+            <strong>Reading List</strong>
+            <span>Coming soon</span>
+          </article>
+          <article class="material-card material-card-disabled" aria-disabled="true">
+            <span class="material-type">Repo</span>
+            <strong>Resources</strong>
+            <span>Coming soon</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="citation" class="section section-tint" aria-labelledby="citation-title">
+      <div class="container">
+        <div class="section-heading citation-heading">
+          <div>
+            <p class="section-kicker">Citation</p>
+            <h2 id="citation-title">BibTeX</h2>
+            <p>Initial citation entry based on the tutorial paper. Please verify against the final ACM DL record before publication.</p>
+          </div>
+          <button class="button button-secondary copy-button" type="button" data-copy-target="bibtex-code">Copy BibTeX</button>
+        </div>
+        <pre class="bibtex-block"><code id="bibtex-code">@inproceedings{wang2026generic,
+  title     = {From Generic Intelligence to Personalized AI: A Tutorial on Foundations of LLM Personalization},
+  author    = {Wang, Ruijie and Zeng, Qingkai and Wang, Xuefei and Ye, Yutong and Sun, Li and Li, Jianxin and Yu, Phillip S.},
+  booktitle = {Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining},
+  year      = {2026},
+  location  = {Jeju Island, Republic of Korea},
+  publisher = {Association for Computing Machinery},
+  doi       = {10.1145/3770855.3816457}
+}</code></pre>
+        <p class="copy-status" data-copy-status aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section" aria-labelledby="contact-title">
+      <div class="container contact-panel">
+        <div class="section-heading compact">
+          <p class="section-kicker">Contact</p>
+          <h2 id="contact-title">Questions and Updates</h2>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:xuefeiw@buaa.edu.cn">xuefeiw@buaa.edu.cn</a>
+          <a href="mailto:ruijiew@buaa.edu.cn">ruijiew@buaa.edu.cn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 KDD Tutorial on LLM Personalization. Built for GitHub Pages.</p>
+      <a href="#top">Back to top</a>
+    </div>
+  </footer>
+</body>
+</html>
